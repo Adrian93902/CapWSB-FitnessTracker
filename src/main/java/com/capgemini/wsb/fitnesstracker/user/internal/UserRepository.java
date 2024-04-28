@@ -3,11 +3,25 @@ package com.capgemini.wsb.fitnesstracker.user.internal;
 import com.capgemini.wsb.fitnesstracker.user.api.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 interface UserRepository extends JpaRepository<User, Long> {
 
+    default List<User> searchUsersByAgeGreaterThan(int age) {
+        LocalDate today = LocalDate.now();
+        return findAll().stream()
+                .filter(user -> calculateAge(user.getBirthdate(), today) > age)
+                .collect(Collectors.toList());
+    }
+
+    private int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+        return Period.between(birthDate, currentDate).getYears();
+    }
     /**
      * Query searching users by email address. It matches by exact match.
      *

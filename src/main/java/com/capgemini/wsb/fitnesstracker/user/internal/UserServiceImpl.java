@@ -7,8 +7,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -41,4 +44,32 @@ class UserServiceImpl implements UserService, UserProvider {
         return userRepository.findAll();
     }
 
+    @Override
+    public void deleteUser(Long userId) {
+        log.info("Deleting user with ID: {}", userId);
+        userRepository.deleteById(userId);
+    }
+
+
+    @Override
+    public List<User> searchUsersByAgeGreaterThan(int age) {
+        log.info("Searching users by age greater than: {}", age);
+        LocalDate today = LocalDate.now();
+        return userRepository.findAll().stream()
+                .filter(user -> calculateAge(user.getBirthdate(), today) > age)
+                .collect(Collectors.toList());
+    }
+
+    private int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+        return Period.between(birthDate, currentDate).getYears();
+    }
+
+    @Override
+    public User updateUser(User user) {
+        log.info("Updating user with ID: {}", user.getId());
+        if (user.getId() == null) {
+            throw new IllegalArgumentException("User does not have a DB ID, cannot be updated!");
+        }
+        return userRepository.save(user);
+    }
 }

@@ -29,5 +29,9 @@ public interface UserProvider {
      * @return An {@link Optional} containing the all users,
      */
     List<User> findAllUsers();
+    void deleteUser(Long userId);
+
+
+    List<User> searchUsersByAgeGreaterThan(int age);
 
 }
