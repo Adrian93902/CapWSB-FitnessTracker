@@ -29,9 +29,21 @@ public interface UserProvider {
      * @return An {@link Optional} containing the all users,
      */
     List<User> findAllUsers();
+
+    /**
+     * Deletes a user based on their ID.
+     *
+     * @param userId the ID of the user to delete
+     */
     void deleteUser(Long userId);
 
 
+    /**
+     * Searches for users whose age is greater than the specified value.
+     *
+     * @param age the age value to compare
+     * @return a list of users whose age is greater than the specified value
+     */
     List<User> searchUsersByAgeGreaterThan(int age);
 
 }

@@ -20,6 +20,14 @@ class UserServiceImpl implements UserService, UserProvider {
 
     private final UserRepository userRepository;
 
+    /**
+     * Creates a new user.
+     *
+     * @param user the user object to be created
+     * @return the created user object
+     * @throws IllegalArgumentException if the user object already has a database ID
+     */
+
     @Override
     public User createUser(final User user) {
         log.info("Creating User {}", user);
@@ -29,26 +37,59 @@ class UserServiceImpl implements UserService, UserProvider {
         return userRepository.save(user);
     }
 
+    /**
+     * Retrieves a user by their ID.
+     *
+     * @param userId the ID of the user to retrieve
+     * @return an Optional containing the user object if found, otherwise empty
+     */
+
     @Override
     public Optional<User> getUser(final Long userId) {
         return userRepository.findById(userId);
     }
+
+    /**
+     * Retrieves a user by their email address.
+     *
+     * @param email the email address of the user to retrieve
+     * @return an Optional containing the user object if found, otherwise empty
+     */
 
     @Override
     public Optional<User> getUserByEmail(final String email) {
         return userRepository.findByEmail(email);
     }
 
+    /**
+     * Retrieves all users.
+     *
+     * @return a list of all users
+     */
+
     @Override
     public List<User> findAllUsers() {
         return userRepository.findAll();
     }
+
+    /**
+     * Deletes a user by their ID.
+     *
+     * @param userId the ID of the user to delete
+     */
 
     @Override
     public void deleteUser(Long userId) {
         log.info("Deleting user with ID: {}", userId);
         userRepository.deleteById(userId);
     }
+
+    /**
+     * Searches for users whose age is greater than the specified value.
+     *
+     * @param age the age value to compare
+     * @return a list of users whose age is greater than the specified value
+     */
 
 
     @Override
@@ -59,10 +100,17 @@ class UserServiceImpl implements UserService, UserProvider {
                 .filter(user -> calculateAge(user.getBirthdate(), today) > age)
                 .collect(Collectors.toList());
     }
-
     private int calculateAge(LocalDate birthDate, LocalDate currentDate) {
         return Period.between(birthDate, currentDate).getYears();
     }
+
+    /**
+     * Updates an existing user.
+     *
+     * @param user the user object to be updated
+     * @return the updated user object
+     * @throws IllegalArgumentException if the user object does not have a database ID
+     */
 
     @Override
     public User updateUser(User user) {

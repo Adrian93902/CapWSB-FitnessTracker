@@ -1,6 +1,9 @@
 package com.capgemini.wsb.fitnesstracker.training.api;
 
+import com.capgemini.wsb.fitnesstracker.training.api.Training;
 import com.capgemini.wsb.fitnesstracker.user.api.User;
+import java.util.Date;
+import com.capgemini.wsb.fitnesstracker.training.internal.ActivityType;
 
 import java.util.Optional;
 
@@ -14,5 +17,19 @@ public interface TrainingProvider {
      * @return An {@link Optional} containing the located Training, or {@link Optional#empty()} if not found
      */
     Optional<User> getTraining(Long trainingId);
+
+    /**
+     * Creates a new training.
+     *
+     * @param user         the user for whom the training is created
+     * @param startTime    the start time of the training
+     * @param endTime      the end time of the training
+     * @param activityType the type of activity for the training
+     * @param distance     the distance covered during the training
+     * @param averageSpeed the average speed during the training
+     * @return the created Training object
+     */
+    Training createTraining(User user, Date startTime, Date endTime, ActivityType activityType, double distance, double averageSpeed);
+
 
 }

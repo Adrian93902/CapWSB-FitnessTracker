@@ -12,6 +12,12 @@ import java.util.stream.Collectors;
 
 interface UserRepository extends JpaRepository<User, Long> {
 
+    /**
+     * Searches for users whose age is greater than the specified value.
+     *
+     * @param age the age value to compare
+     * @return a list of users whose age is greater than the specified value
+     */
     default List<User> searchUsersByAgeGreaterThan(int age) {
         LocalDate today = LocalDate.now();
         return findAll().stream()
