@@ -5,6 +5,7 @@ import com.capgemini.wsb.fitnesstracker.user.api.User;
 import java.util.Date;
 import com.capgemini.wsb.fitnesstracker.training.internal.ActivityType;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface TrainingProvider {
@@ -16,7 +17,11 @@ public interface TrainingProvider {
      * @param trainingId id of the training to be searched
      * @return An {@link Optional} containing the located Training, or {@link Optional#empty()} if not found
      */
-    Optional<User> getTraining(Long trainingId);
+    // TODO fix User
+    Optional<Training> getTraining(Long trainingId);
+
+    List<Training> getAllTrainings();
+
 
     /**
      * Creates a new training.
@@ -29,7 +34,6 @@ public interface TrainingProvider {
      * @param averageSpeed the average speed during the training
      * @return the created Training object
      */
+
     Training createTraining(User user, Date startTime, Date endTime, ActivityType activityType, double distance, double averageSpeed);
-
-
 }

@@ -7,11 +7,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.Period;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 
 @Service
 @RequiredArgsConstructor
@@ -35,6 +35,15 @@ class UserServiceImpl implements UserService, UserProvider {
             throw new IllegalArgumentException("User has already DB ID, update is not permitted!");
         }
         return userRepository.save(user);
+    }
+
+    @Override
+    public List<UserSimpleDto> getUserInfoBasic() {
+        log.info("Getting basic user info for all users.");
+        List<User> users = userRepository.findAll();
+        return users.stream()
+                .map(user -> new UserSimpleDto(user.getId(), user.getFirstName(), user.getLastName()))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -95,13 +104,7 @@ class UserServiceImpl implements UserService, UserProvider {
     @Override
     public List<User> searchUsersByAgeGreaterThan(int age) {
         log.info("Searching users by age greater than: {}", age);
-        LocalDate today = LocalDate.now();
-        return userRepository.findAll().stream()
-                .filter(user -> calculateAge(user.getBirthdate(), today) > age)
-                .collect(Collectors.toList());
-    }
-    private int calculateAge(LocalDate birthDate, LocalDate currentDate) {
-        return Period.between(birthDate, currentDate).getYears();
+        return userRepository.searchUsersByAgeGreaterThan(age);
     }
 
     /**

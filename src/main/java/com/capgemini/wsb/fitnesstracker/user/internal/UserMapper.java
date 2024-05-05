@@ -1,13 +1,17 @@
 package com.capgemini.wsb.fitnesstracker.user.internal;
 
 import com.capgemini.wsb.fitnesstracker.user.api.User;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 /**
  * Component responsible for mapping between User and UserDto objects.
  */
+@Data
 @Component
-class UserMapper {
+@RequiredArgsConstructor
+public class UserMapper {
 
 
 
@@ -17,7 +21,7 @@ class UserMapper {
      * @param user the User object to map
      * @return the mapped UserDto object
      */
-    UserDto toDto(User user) {
+    public UserDto toDto(User user) {
         return new UserDto(user.getId(),
                            user.getFirstName(),
                            user.getLastName(),
@@ -31,7 +35,7 @@ class UserMapper {
      * @param userDto the UserDto object to map
      * @return the mapped User object
      */
-    User toEntity(UserDto userDto) {
+    public User toEntity(UserDto userDto) {
         return new User(
                         userDto.firstName(),
                         userDto.lastName(),

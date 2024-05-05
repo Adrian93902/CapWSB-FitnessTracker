@@ -1,9 +1,15 @@
 package com.capgemini.wsb.fitnesstracker.user.api;
 
+
+
+import com.capgemini.wsb.fitnesstracker.user.internal.UserSimpleDto;
+
 import java.util.List;
 import java.util.Optional;
 
 public interface UserProvider {
+
+    List<UserSimpleDto> getUserInfoBasic();
 
     /**
      * Retrieves a user based on their ID.

@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
     /**
      * Searches for users whose age is greater than the specified value.
