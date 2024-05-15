@@ -44,13 +44,15 @@ class UserController {
      */
 
     @PostMapping
-    public User addUser(@RequestBody UserDto userDto) {
+    public UserDto createUser(@RequestBody UserDto userDto) {
 
         System.out.println("User with email: " + userDto.email() + " passed to the request");
 
         User user = userMapper.toEntity(userDto);
+        User userNew = userService.createUser(user);
 
-        return userService.createUser(user);
+
+        return userMapper.toDto(userNew);
     }
 
     /**
@@ -90,6 +92,12 @@ class UserController {
     @GetMapping("/basic-info")
     public List<UserSimpleDto> getAllUsersBasicInfo() {
         return userService.getUserInfoBasic();
+    }
+
+    @GetMapping("/{userId}")
+    public UserDto getUser(final Long userId) {
+        return userService.getUser(userId)
+                .map(userMapper::toDto).orElse(null);
     }
 
 
