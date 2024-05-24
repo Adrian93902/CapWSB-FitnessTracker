@@ -28,7 +28,7 @@ class UserController {
      * @return a list of UserDto objects representing all users
      */
 
-    @GetMapping
+    @GetMapping("/getAllUsers")
     public List<UserDto> getAllUsers() {
         return userService.findAllUsers()
                           .stream()
@@ -43,7 +43,7 @@ class UserController {
      * @return the added User object
      */
 
-    @PostMapping
+    @PostMapping("/addUser")
     public UserDto createUser(@RequestBody UserDto userDto) {
 
         System.out.println("User with email: " + userDto.email() + " passed to the request");
@@ -61,23 +61,23 @@ class UserController {
      * @param userDto the UserDto object representing the user to update
      * @return the updated User object
      */
-    @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody UserDto userDto) {
-        // Demonstracja how to use @PathVariable
-        System.out.println("Updating user with ID: " + id);
-        Optional<User> existingUserOptional = userService.getUser(id);
+    @PutMapping("/updateUser/{userId}")
+    public UserDto updateUser(@PathVariable Long userId, @RequestBody UserDto userDto) {
+        System.out.println("Updating user with ID: " + userId);
+        Optional<User> existingUserOptional = userService.getUser(userId);
         if (existingUserOptional.isEmpty()) {
-            throw new UserNotFoundException(id);
+            throw new UserNotFoundException(userId);
         }
         User updatedUser = userMapper.toEntity(userDto);
-        updatedUser.setId(id);
-        return userService.updateUser(updatedUser);
+        updatedUser.setId(userId);
+        User updatedUser2 = userService.updateUser(updatedUser);
+                return userMapper.toDto(updatedUser2);
     }
-    @DeleteMapping("/{userId}")
+    @DeleteMapping("/deleteUser/{userId}")
     public void deleteUser(@PathVariable Long userId) {
         userService.deleteUser(userId);
     }
-    @GetMapping("/search")
+    @GetMapping("/searchByAgeGreaterThan")
     public List<UserDto> searchUsersByAgeGreaterThan(@RequestParam int age) {
         return userService.searchUsersByAgeGreaterThan(age)
                 .stream()
@@ -89,13 +89,13 @@ class UserController {
      *
      * @return a list of UserDto objects representing basic user information
      */
-    @GetMapping("/basic-info")
+    @GetMapping("/listBasic-info")
     public List<UserSimpleDto> getAllUsersBasicInfo() {
         return userService.getUserInfoBasic();
     }
 
-    @GetMapping("/{userId}")
-    public UserDto getUser(final Long userId) {
+    @GetMapping("/getUser/{userId}")
+    public UserDto getUser(@PathVariable Long userId) {
         return userService.getUser(userId)
                 .map(userMapper::toDto).orElse(null);
     }

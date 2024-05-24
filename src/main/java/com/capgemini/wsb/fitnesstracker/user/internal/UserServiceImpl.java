@@ -121,6 +121,7 @@ class UserServiceImpl implements UserService, UserProvider {
         if (user.getId() == null) {
             throw new IllegalArgumentException("User does not have a DB ID, cannot be updated!");
         }
+
         return userRepository.save(user);
     }
 }

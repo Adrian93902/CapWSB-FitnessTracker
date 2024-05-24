@@ -33,6 +33,9 @@ public class TrainingMapper {
         return trainingDto;
 
     }
+
+
+
 }  /*this.id = id;
         this.userId = userId;
         this.startTime = startTime;
