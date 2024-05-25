@@ -77,8 +77,8 @@ class UserController {
     public void deleteUser(@PathVariable Long userId) {
         userService.deleteUser(userId);
     }
-    @GetMapping("/searchByAgeGreaterThan")
-    public List<UserDto> searchUsersByAgeGreaterThan(@RequestParam int age) {
+    @GetMapping("/searchByAgeGreaterThan/{age}")
+    public List<UserDto> searchUsersByAgeGreaterThan(@PathVariable int age) {
         return userService.searchUsersByAgeGreaterThan(age)
                 .stream()
                 .map(userMapper::toDto)
