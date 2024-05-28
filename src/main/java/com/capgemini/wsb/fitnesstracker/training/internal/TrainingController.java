@@ -5,6 +5,7 @@ import com.capgemini.wsb.fitnesstracker.training.api.TrainingProvider;
 import com.capgemini.wsb.fitnesstracker.user.api.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import com.capgemini.wsb.fitnesstracker.user.internal.UserRepository;
 
@@ -26,6 +27,7 @@ public class TrainingController {
             return trainingService.getAllTrainings().stream().map(trainingMapper::toDto).toList();
     }
     @PostMapping("/createTraining")
+    @ResponseStatus(HttpStatus.CREATED)
     public Training createTraining(@RequestBody TrainingDto createTraining) {
         return trainingService.createTraining(createTraining);
     }

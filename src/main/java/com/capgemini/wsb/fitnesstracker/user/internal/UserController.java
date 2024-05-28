@@ -5,6 +5,7 @@ import com.capgemini.wsb.fitnesstracker.user.api.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,7 +46,7 @@ class UserController {
 
 
     @PostMapping("/addUser")
-    @ResponseStatus
+    @ResponseStatus(HttpStatus.CREATED)
     public UserDto createUser(@RequestBody UserDto userDto) {
 
         System.out.println("User with email: " + userDto.email() + " passed to the request");
@@ -76,8 +77,9 @@ class UserController {
                 return userMapper.toDto(updatedUser2);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/deleteUser/{userId}")
-    @ResponseStatus
+
     public void deleteUser(@PathVariable Long userId) {
         userService.deleteUser(userId);
     }
