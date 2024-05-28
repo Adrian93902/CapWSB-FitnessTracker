@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "27418a1a-f6a0-495e-ba1f-fdce07078e4e",
+		"name": "Lab01",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "35014912"
+	},
+	"item": [
+		{
+			"name": "getAllUsers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/v1/users/getAllUsers"
+			},
+			"response": []
+		},
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Id\": 11,\r\n        \"firstName\": \"Adrian\",\r\n        \"lastName\": \"Czaja\",\r\n        \"birthdate\": \"1998-10-22\",\r\n        \"email\": \"Adrian.Czaja@domain.com\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/v1/users/addUser"
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Id\": 3,\r\n        \"firstName\": \"Olivia\",\r\n        \"lastName\": \"Parker\",\r\n        \"birthdate\": \"1948-06-25\",\r\n        \"email\": \"Olivia.Parker@interia.com\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/v1/users/updateUser/3"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/v1/users/deleteUser/1"
+			},
+			"response": []
+		},
+		{
+			"name": "searchByAgeGreaterThan/30",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/v1/users/searchByAgeGreaterThan/30"
+			},
+			"response": []
+		},
+		{
+			"name": "Basic-InfoUsersList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/v1/users/listBasic-info"
+			},
+			"response": []
+		},
+		{
+			"name": "getUserByID:5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/v1/users/getUser/5"
+			},
+			"response": []
+		}
+	]
+}
