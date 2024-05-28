@@ -43,7 +43,9 @@ class UserController {
      * @return the added User object
      */
 
+
     @PostMapping("/addUser")
+    @ResponseStatus
     public UserDto createUser(@RequestBody UserDto userDto) {
 
         System.out.println("User with email: " + userDto.email() + " passed to the request");
@@ -73,7 +75,9 @@ class UserController {
         User updatedUser2 = userService.updateUser(updatedUser);
                 return userMapper.toDto(updatedUser2);
     }
+
     @DeleteMapping("/deleteUser/{userId}")
+    @ResponseStatus
     public void deleteUser(@PathVariable Long userId) {
         userService.deleteUser(userId);
     }
