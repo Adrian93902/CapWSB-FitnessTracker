@@ -9,6 +9,13 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.Date;
+/**
+ * Entity class representing a training session.
+ *
+ * <p>This class represents a training session undertaken by a user. It includes details such as the user
+ * performing the training, the start and end times of the session, the type of activity, distance covered,
+ * and average speed.</p>
+ */
 @Entity
 @Table(name = "trainings")
 @Getter
@@ -43,7 +50,16 @@ public class Training {
     private double averageSpeed;
 
 
-
+    /**
+     * Constructs a new training session.
+     *
+     * @param user         the user performing the training
+     * @param startTime    the start time of the training session
+     * @param endTime      the end time of the training session
+     * @param activityType the type of activity performed during the training session
+     * @param distance     the distance covered during the training session
+     * @param averageSpeed the average speed achieved during the training session
+     */
 
     public Training(
             final User user,

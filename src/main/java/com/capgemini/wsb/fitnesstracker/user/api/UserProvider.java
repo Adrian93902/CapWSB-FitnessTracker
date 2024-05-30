@@ -7,50 +7,54 @@ import com.capgemini.wsb.fitnesstracker.user.internal.UserSimpleDto;
 
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Interface providing user operations in the fitness tracker application.
+ */
 public interface UserProvider {
-
+    /**
+     * Returns basic information about all users.
+     *
+     * @return A list of UserSimpleDto objects containing basic information about users.
+     */
     List<UserSimpleDto> getUserInfoBasic();
 
     /**
-     * Retrieves a user based on their ID.
-     * If the user with given ID is not found, then {@link Optional#empty()} will be returned.
+     * Returns detailed information about a user based on their identifier.
      *
-     * @param userId id of the user to be searched
-     * @return An {@link Optional} containing the located user, or {@link Optional#empty()} if not found
+     * @param userId The identifier of the user.
+     * @return A UserDto object containing detailed information about the user.
      */
     UserDto getUser(Long userId);
 
     /**
-     * Retrieves a user based on their email.
-     * If the user with given email is not found, then {@link Optional#empty()} will be returned.
+     * Returns detailed information about a user based on their email address.
      *
-     * @param email The email of the user to be searched
-     * @return An {@link Optional} containing the located user, or {@link Optional#empty()} if not found
+     * @param email The email address of the user.
+     * @return A UserDto object containing detailed information about the user.
      */
     UserDto getUserByEmail(String email);
-
     /**
-     * Retrieves all users.
+     * Returns a list of all users.
      *
-     * @return An {@link Optional} containing the all users,
+     * @return A list of UserDto objects containing detailed information about all users.
      */
+
     List<UserDto> findAllUsers();
-
     /**
-     * Deletes a user based on their ID.
+     * Deletes a user based on their identifier.
      *
-     * @param userId the ID of the user to delete
+     * @param userId The identifier of the user to be deleted.
      */
+
     void deleteUser(Long userId);
 
-
     /**
-     * Searches for users whose age is greater than the specified value.
+     * Searches for users who are older than the specified age.
      *
-     * @param age the age value to compare
-     * @return a list of users whose age is greater than the specified value
+     * @param age The age that users should be older than.
+     * @return A list of UserDto objects representing users who are older than the specified age.
      */
+
     List<UserDto> searchUsersByAgeGreaterThan(int age);
 
 }

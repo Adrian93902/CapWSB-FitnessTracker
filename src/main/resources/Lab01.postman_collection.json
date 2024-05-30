@@ -25,7 +25,52 @@
 				},
 				"url": "localhost:8080/v1/users/getAllUsers"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "getAllUsers",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/v1/users/getAllUsers"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 18:54:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"firstName\": \"Emma\",\n        \"lastName\": \"Johnson\",\n        \"birthdate\": \"1996-05-30\",\n        \"email\": \"Emma.Johnson@domain.com\"\n    },\n    {\n        \"id\": 2,\n        \"firstName\": \"Ethan\",\n        \"lastName\": \"Taylor\",\n        \"birthdate\": \"1973-05-30\",\n        \"email\": \"Ethan.Taylor@domain.com\"\n    },\n    {\n        \"id\": 3,\n        \"firstName\": \"Olivia\",\n        \"lastName\": \"Davis\",\n        \"birthdate\": \"1948-05-30\",\n        \"email\": \"Olivia.Davis@domain.com\"\n    },\n    {\n        \"id\": 4,\n        \"firstName\": \"Daniel\",\n        \"lastName\": \"Thomas\",\n        \"birthdate\": \"1990-05-30\",\n        \"email\": \"Daniel.Thomas@domain.com\"\n    },\n    {\n        \"id\": 5,\n        \"firstName\": \"Sophia\",\n        \"lastName\": \"Baker\",\n        \"birthdate\": \"1975-05-30\",\n        \"email\": \"Sophia.Baker@domain.com\"\n    },\n    {\n        \"id\": 6,\n        \"firstName\": \"Liam\",\n        \"lastName\": \"Jones\",\n        \"birthdate\": \"2001-05-30\",\n        \"email\": \"Liam.Jones@domain.com\"\n    },\n    {\n        \"id\": 7,\n        \"firstName\": \"Ava\",\n        \"lastName\": \"Williams\",\n        \"birthdate\": \"2003-05-30\",\n        \"email\": \"Ava.Williams@domain.com\"\n    },\n    {\n        \"id\": 8,\n        \"firstName\": \"Noah\",\n        \"lastName\": \"Miller\",\n        \"birthdate\": \"1985-05-30\",\n        \"email\": \"Noah.Miller@domain.com\"\n    },\n    {\n        \"id\": 9,\n        \"firstName\": \"Grace\",\n        \"lastName\": \"Anderson\",\n        \"birthdate\": \"1991-05-30\",\n        \"email\": \"Grace.Anderson@domain.com\"\n    },\n    {\n        \"id\": 10,\n        \"firstName\": \"Oliver\",\n        \"lastName\": \"Swift\",\n        \"birthdate\": \"1995-05-30\",\n        \"email\": \"Oliver.Swift@domain.com\"\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "addUser",
@@ -43,7 +88,52 @@
 				},
 				"url": "localhost:8080/v1/users/addUser"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "addUser",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"Id\": 11,\r\n        \"firstName\": \"Adrian\",\r\n        \"lastName\": \"Czaja\",\r\n        \"birthdate\": \"1998-10-22\",\r\n        \"email\": \"Adrian.Czaja@domain.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/v1/users/addUser"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 18:57:56 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 11,\n    \"firstName\": \"Adrian\",\n    \"lastName\": \"Czaja\",\n    \"birthdate\": \"1998-10-22\",\n    \"email\": \"Adrian.Czaja@domain.com\"\n}"
+				}
+			]
 		},
 		{
 			"name": "updateUser",
@@ -61,7 +151,52 @@
 				},
 				"url": "localhost:8080/v1/users/updateUser/3"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "updateUser",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"Id\": 3,\r\n        \"firstName\": \"Olivia\",\r\n        \"lastName\": \"Parker\",\r\n        \"birthdate\": \"1948-06-25\",\r\n        \"email\": \"Olivia.Parker@interia.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/v1/users/updateUser/3"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 18:58:11 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"firstName\": \"Olivia\",\n    \"lastName\": \"Parker\",\n    \"birthdate\": \"1948-06-25\",\n    \"email\": \"Olivia.Parker@interia.com\"\n}"
+				}
+			]
 		},
 		{
 			"name": "deleteUser",
@@ -70,7 +205,39 @@
 				"header": [],
 				"url": "localhost:8080/v1/users/deleteUser/1"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "deleteUser",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/v1/users/deleteUser/1"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 18:58:54 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "searchByAgeGreaterThan/30",
@@ -79,7 +246,43 @@
 				"header": [],
 				"url": "localhost:8080/v1/users/searchByAgeGreaterThan/30"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "searchByAgeGreaterThan/30",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/v1/users/searchByAgeGreaterThan/30"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 18:58:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2,\n        \"firstName\": \"Ethan\",\n        \"lastName\": \"Taylor\",\n        \"birthdate\": \"1973-05-30\",\n        \"email\": \"Ethan.Taylor@domain.com\"\n    },\n    {\n        \"id\": 3,\n        \"firstName\": \"Olivia\",\n        \"lastName\": \"Parker\",\n        \"birthdate\": \"1948-06-25\",\n        \"email\": \"Olivia.Parker@interia.com\"\n    },\n    {\n        \"id\": 4,\n        \"firstName\": \"Daniel\",\n        \"lastName\": \"Thomas\",\n        \"birthdate\": \"1990-05-30\",\n        \"email\": \"Daniel.Thomas@domain.com\"\n    },\n    {\n        \"id\": 5,\n        \"firstName\": \"Sophia\",\n        \"lastName\": \"Baker\",\n        \"birthdate\": \"1975-05-30\",\n        \"email\": \"Sophia.Baker@domain.com\"\n    },\n    {\n        \"id\": 8,\n        \"firstName\": \"Noah\",\n        \"lastName\": \"Miller\",\n        \"birthdate\": \"1985-05-30\",\n        \"email\": \"Noah.Miller@domain.com\"\n    },\n    {\n        \"id\": 9,\n        \"firstName\": \"Grace\",\n        \"lastName\": \"Anderson\",\n        \"birthdate\": \"1991-05-30\",\n        \"email\": \"Grace.Anderson@domain.com\"\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Basic-InfoUsersList",
@@ -88,7 +291,43 @@
 				"header": [],
 				"url": "localhost:8080/v1/users/listBasic-info"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Basic-InfoUsersList",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/v1/users/listBasic-info"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 18:58:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"Id\": 1,\n        \"firstName\": \"Emma\",\n        \"lastName\": \"Johnson\"\n    },\n    {\n        \"Id\": 2,\n        \"firstName\": \"Ethan\",\n        \"lastName\": \"Taylor\"\n    },\n    {\n        \"Id\": 3,\n        \"firstName\": \"Olivia\",\n        \"lastName\": \"Parker\"\n    },\n    {\n        \"Id\": 4,\n        \"firstName\": \"Daniel\",\n        \"lastName\": \"Thomas\"\n    },\n    {\n        \"Id\": 5,\n        \"firstName\": \"Sophia\",\n        \"lastName\": \"Baker\"\n    },\n    {\n        \"Id\": 6,\n        \"firstName\": \"Liam\",\n        \"lastName\": \"Jones\"\n    },\n    {\n        \"Id\": 7,\n        \"firstName\": \"Ava\",\n        \"lastName\": \"Williams\"\n    },\n    {\n        \"Id\": 8,\n        \"firstName\": \"Noah\",\n        \"lastName\": \"Miller\"\n    },\n    {\n        \"Id\": 9,\n        \"firstName\": \"Grace\",\n        \"lastName\": \"Anderson\"\n    },\n    {\n        \"Id\": 10,\n        \"firstName\": \"Oliver\",\n        \"lastName\": \"Swift\"\n    },\n    {\n        \"Id\": 11,\n        \"firstName\": \"Adrian\",\n        \"lastName\": \"Czaja\"\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "getUserByID:5",
@@ -97,7 +336,92 @@
 				"header": [],
 				"url": "localhost:8080/v1/users/getUser/5"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "getUserByID:5",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/v1/users/getUser/5"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 18:58:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"firstName\": \"Sophia\",\n    \"lastName\": \"Baker\",\n    \"birthdate\": \"1975-05-30\",\n    \"email\": \"Sophia.Baker@domain.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "FindByEmail: Emma.Johnson@domain.com",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/v1/users/findByEmail/Emma.Johnson@domain.com"
+			},
+			"response": [
+				{
+					"name": "FindByEmail: Emma.Johnson@domain.com",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/v1/users/findByEmail/Emma.Johnson@domain.com"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Disposition",
+							"value": "inline;filename=f.txt"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 18:57:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"firstName\": \"Emma\",\n    \"lastName\": \"Johnson\",\n    \"birthdate\": \"1996-05-30\",\n    \"email\": \"Emma.Johnson@domain.com\"\n}"
+				}
+			]
 		}
 	]
 }

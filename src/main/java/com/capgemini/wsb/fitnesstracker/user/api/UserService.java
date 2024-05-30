@@ -2,24 +2,22 @@ package com.capgemini.wsb.fitnesstracker.user.api;
 
 import com.capgemini.wsb.fitnesstracker.user.internal.UserDto;
 
-/**
- * Interface (API) for modifying operations on {@link User} entities through the API.
- * Implementing classes are responsible for executing changes within a database transaction, whether by continuing an existing transaction or creating a new one if required.
- */
+
 public interface UserService extends UserProvider {
 
     /**
-     * Creates a new user.
+     * Creates a new user with the specified user information.
      *
-     * @param user the user object to be created
-     * @return the created user object
+     * @param userDto the user data transfer object containing user information
+     * @return the created {@link UserDto} with assigned user ID and other details
      */
     UserDto createUser(UserDto userDto);
     /**
-     * Updates an existing user.
+     * Updates an existing user's information.
      *
-     * @param user the user object to be updated
-     * @return the updated user object
+     * @param userId the ID of the user to be updated
+     * @param userDto the user data transfer object containing updated user information
+     * @return the updated {@link UserDto} with new details
      */
     UserDto updateUser(Long userId, UserDto userDto);
 

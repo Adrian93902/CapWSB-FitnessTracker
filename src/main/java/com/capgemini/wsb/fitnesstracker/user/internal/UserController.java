@@ -26,7 +26,7 @@ class UserController {
     /**
      * Retrieves all users.
      *
-     * @return a list of UserDto objects representing all users
+     * @return a list of {@link UserDto} objects representing all users
      */
 
     @GetMapping("/getAllUsers")
@@ -34,17 +34,22 @@ class UserController {
         return userService.findAllUsers();
     }
 
-
-    @GetMapping("/findByEmail")
-    public UserDto getUserByEmail(String email){
+    /**
+     * Retrieves a user by their email address.
+     *
+     * @param email the email address of the user to retrieve
+     * @return the {@link UserDto} object representing the user
+     */
+    @GetMapping("/findByEmail/{email}")
+    public UserDto getUserByEmail(@PathVariable String email){
         return userService.getUserByEmail(email);
     }
 
     /**
      * Adds a new user.
      *
-     * @param userDto the UserDto object representing the user to add
-     * @return the added User object
+     * @param userDto the {@link UserDto} object representing the user to add
+     * @return the added {@link UserDto} object
      */
 
 
@@ -58,20 +63,31 @@ class UserController {
     /**
      * Updates an existing user.
      *
-     * @param userDto the UserDto object representing the user to update
-     * @return the updated User object
+     * @param userId  the ID of the user to update
+     * @param userDto the {@link UserDto} object representing the updated user information
+     * @return the updated {@link UserDto} object
      */
     @PutMapping("/updateUser/{userId}")
     public UserDto updateUser(@PathVariable Long userId, @RequestBody UserDto userDto) {
         return userService.updateUser(userId,userDto);
     }
 
-    //@ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/deleteUser/{userId}")
 
+    /**
+     * Deletes a user.
+     *
+     * @param userId the ID of the user to delete
+     */
+    @DeleteMapping("/deleteUser/{userId}")
     public void deleteUser(@PathVariable Long userId) {
         userService.deleteUser(userId);
     }
+    /**
+     * Searches for users older than a specified age.
+     *
+     * @param age the minimum age of the users to search for
+     * @return a list of {@link UserDto} objects representing users older than the specified age
+     */
     @GetMapping("/searchByAgeGreaterThan/{age}")
     public List<UserDto> searchUsersByAgeGreaterThan(@PathVariable int age) {
         return userService.searchUsersByAgeGreaterThan(age);
@@ -79,13 +95,18 @@ class UserController {
     /**
      * Retrieves basic information about all users.
      *
-     * @return a list of UserDto objects representing basic user information
+     * @return a list of {@link UserSimpleDto} objects representing basic user information
      */
     @GetMapping("/listBasic-info")
     public List<UserSimpleDto> getAllUsersBasicInfo() {
         return userService.getUserInfoBasic();
     }
-
+    /**
+     * Retrieves a user by their ID.
+     *
+     * @param userId the ID of the user to retrieve
+     * @return the {@link UserDto} object representing the user
+     */
     @GetMapping("/getUser/{userId}")
     public UserDto getUser(@PathVariable Long userId) {
         return userService.getUser(userId);

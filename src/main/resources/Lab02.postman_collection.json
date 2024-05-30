@@ -11,36 +11,216 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "localhost:8080/v1/training/allTrainings"
+				"url": "localhost:8080/v1/trainings"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "allTrainingsList",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/v1/trainings"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 19:00:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2,\n        \"user\": {\n            \"id\": 2,\n            \"firstName\": \"Ethan\",\n            \"lastName\": \"Taylor\",\n            \"birthdate\": \"1973-05-30\",\n            \"email\": \"Ethan.Taylor@domain.com\"\n        },\n        \"startTime\": \"2024-01-18T14:30:00.000+00:00\",\n        \"endTime\": \"2024-01-18T16:00:00.000+00:00\",\n        \"activityType\": \"CYCLING\",\n        \"distance\": 25,\n        \"averageSpeed\": 18.5\n    },\n    {\n        \"id\": 3,\n        \"user\": {\n            \"id\": 3,\n            \"firstName\": \"Olivia\",\n            \"lastName\": \"Parker\",\n            \"birthdate\": \"1948-06-25\",\n            \"email\": \"Olivia.Parker@interia.com\"\n        },\n        \"startTime\": \"2024-01-17T06:45:00.000+00:00\",\n        \"endTime\": \"2024-01-17T08:00:00.000+00:00\",\n        \"activityType\": \"WALKING\",\n        \"distance\": 5.2,\n        \"averageSpeed\": 5.8\n    },\n    {\n        \"id\": 4,\n        \"user\": {\n            \"id\": 4,\n            \"firstName\": \"Daniel\",\n            \"lastName\": \"Thomas\",\n            \"birthdate\": \"1990-05-30\",\n            \"email\": \"Daniel.Thomas@domain.com\"\n        },\n        \"startTime\": \"2024-01-16T17:00:00.000+00:00\",\n        \"endTime\": \"2024-01-16T18:30:00.000+00:00\",\n        \"activityType\": \"RUNNING\",\n        \"distance\": 12.3,\n        \"averageSpeed\": 9\n    },\n    {\n        \"id\": 5,\n        \"user\": {\n            \"id\": 5,\n            \"firstName\": \"Sophia\",\n            \"lastName\": \"Baker\",\n            \"birthdate\": \"1975-05-30\",\n            \"email\": \"Sophia.Baker@domain.com\"\n        },\n        \"startTime\": \"2024-01-15T11:30:00.000+00:00\",\n        \"endTime\": \"2024-01-15T12:45:00.000+00:00\",\n        \"activityType\": \"CYCLING\",\n        \"distance\": 18.7,\n        \"averageSpeed\": 15.3\n    },\n    {\n        \"id\": 6,\n        \"user\": {\n            \"id\": 6,\n            \"firstName\": \"Liam\",\n            \"lastName\": \"Jones\",\n            \"birthdate\": \"2001-05-30\",\n            \"email\": \"Liam.Jones@domain.com\"\n        },\n        \"startTime\": \"2024-01-14T08:00:00.000+00:00\",\n        \"endTime\": \"2024-01-14T09:15:00.000+00:00\",\n        \"activityType\": \"WALKING\",\n        \"distance\": 3.5,\n        \"averageSpeed\": 4\n    },\n    {\n        \"id\": 7,\n        \"user\": {\n            \"id\": 7,\n            \"firstName\": \"Ava\",\n            \"lastName\": \"Williams\",\n            \"birthdate\": \"2003-05-30\",\n            \"email\": \"Ava.Williams@domain.com\"\n        },\n        \"startTime\": \"2024-01-13T15:45:00.000+00:00\",\n        \"endTime\": \"2024-01-13T17:30:00.000+00:00\",\n        \"activityType\": \"RUNNING\",\n        \"distance\": 15,\n        \"averageSpeed\": 10.8\n    },\n    {\n        \"id\": 8,\n        \"user\": {\n            \"id\": 8,\n            \"firstName\": \"Noah\",\n            \"lastName\": \"Miller\",\n            \"birthdate\": \"1985-05-30\",\n            \"email\": \"Noah.Miller@domain.com\"\n        },\n        \"startTime\": \"2024-01-12T10:30:00.000+00:00\",\n        \"endTime\": \"2024-01-12T11:45:00.000+00:00\",\n        \"activityType\": \"CYCLING\",\n        \"distance\": 22.5,\n        \"averageSpeed\": 17.2\n    },\n    {\n        \"id\": 9,\n        \"user\": {\n            \"id\": 9,\n            \"firstName\": \"Grace\",\n            \"lastName\": \"Anderson\",\n            \"birthdate\": \"1991-05-30\",\n            \"email\": \"Grace.Anderson@domain.com\"\n        },\n        \"startTime\": \"2024-01-11T06:15:00.000+00:00\",\n        \"endTime\": \"2024-01-11T07:30:00.000+00:00\",\n        \"activityType\": \"WALKING\",\n        \"distance\": 4.2,\n        \"averageSpeed\": 4.5\n    },\n    {\n        \"id\": 10,\n        \"user\": {\n            \"id\": 10,\n            \"firstName\": \"Oliver\",\n            \"lastName\": \"Swift\",\n            \"birthdate\": \"1995-05-30\",\n            \"email\": \"Oliver.Swift@domain.com\"\n        },\n        \"startTime\": \"2024-01-10T13:00:00.000+00:00\",\n        \"endTime\": \"2024-01-10T14:15:00.000+00:00\",\n        \"activityType\": \"RUNNING\",\n        \"distance\": 11.8,\n        \"averageSpeed\": 8.5\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "getTrainingByID:5",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "localhost:8080/v1/training/getTraining/5"
+				"url": "localhost:8080/v1/trainings/getTraining/5"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "getTrainingByID:5",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/v1/trainings/getTraining/5"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 19:00:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"user\": {\n        \"id\": 5,\n        \"firstName\": \"Sophia\",\n        \"lastName\": \"Baker\",\n        \"birthdate\": \"1975-05-30\",\n        \"email\": \"Sophia.Baker@domain.com\"\n    },\n    \"startTime\": \"2024-01-15T11:30:00.000+00:00\",\n    \"endTime\": \"2024-01-15T12:45:00.000+00:00\",\n    \"activityType\": \"CYCLING\",\n    \"distance\": 18.7,\n    \"averageSpeed\": 15.3\n}"
+				}
+			]
 		},
 		{
 			"name": "findTrainingByUserID:4",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "localhost:8080/v1/training/findTrainingByUser/4"
+				"url": "localhost:8080/v1/trainings/4"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "findTrainingByUserID:4",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/v1/trainings/4"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 19:01:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 4,\n        \"user\": {\n            \"id\": 4,\n            \"firstName\": \"Daniel\",\n            \"lastName\": \"Thomas\",\n            \"birthdate\": \"1990-05-30\",\n            \"email\": \"Daniel.Thomas@domain.com\"\n        },\n        \"startTime\": \"2024-01-16T17:00:00.000+00:00\",\n        \"endTime\": \"2024-01-16T18:30:00.000+00:00\",\n        \"activityType\": \"RUNNING\",\n        \"distance\": 12.3,\n        \"averageSpeed\": 9\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "getAllTrainingsByActivityType ActivityType=walking   userID=3",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "localhost:8080/v1/training/getAllTrainingsByActivityType/walking/user/3"
+				"url": {
+					"raw": "http://localhost:8080/v1/trainings/activityType?activityType=WALKING",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"trainings",
+						"activityType"
+					],
+					"query": [
+						{
+							"key": "activityType",
+							"value": "WALKING"
+						}
+					]
+				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "getAllTrainingsByActivityType ActivityType=walking   userID=3",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/trainings/activityType?activityType=WALKING",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"trainings",
+								"activityType"
+							],
+							"query": [
+								{
+									"key": "activityType",
+									"value": "WALKING"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 19:06:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 3,\n        \"user\": {\n            \"id\": 3,\n            \"firstName\": \"Olivia\",\n            \"lastName\": \"Parker\",\n            \"birthdate\": \"1948-06-25\",\n            \"email\": \"Olivia.Parker@interia.com\"\n        },\n        \"startTime\": \"2024-01-17T06:45:00.000+00:00\",\n        \"endTime\": \"2024-01-17T08:00:00.000+00:00\",\n        \"activityType\": \"WALKING\",\n        \"distance\": 5.2,\n        \"averageSpeed\": 5.8\n    },\n    {\n        \"id\": 6,\n        \"user\": {\n            \"id\": 6,\n            \"firstName\": \"Liam\",\n            \"lastName\": \"Jones\",\n            \"birthdate\": \"2001-05-30\",\n            \"email\": \"Liam.Jones@domain.com\"\n        },\n        \"startTime\": \"2024-01-14T08:00:00.000+00:00\",\n        \"endTime\": \"2024-01-14T09:15:00.000+00:00\",\n        \"activityType\": \"WALKING\",\n        \"distance\": 3.5,\n        \"averageSpeed\": 4\n    },\n    {\n        \"id\": 9,\n        \"user\": {\n            \"id\": 9,\n            \"firstName\": \"Grace\",\n            \"lastName\": \"Anderson\",\n            \"birthdate\": \"1991-05-30\",\n            \"email\": \"Grace.Anderson@domain.com\"\n        },\n        \"startTime\": \"2024-01-11T06:15:00.000+00:00\",\n        \"endTime\": \"2024-01-11T07:30:00.000+00:00\",\n        \"activityType\": \"WALKING\",\n        \"distance\": 4.2,\n        \"averageSpeed\": 4.5\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "createTraining",
@@ -49,16 +229,61 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n        \"id\": 11,\r\n        \"user\": {\r\n            \"Id\": 3,\r\n            \"firstName\": \"Olivia\",\r\n            \"lastName\": \"Davis\",\r\n            \"birthdate\": \"1948-05-24\",\r\n            \"email\": \"Olivia.Davis@domain.com\"\r\n        },\r\n        \"startTime\": \"2024-01-17T06:45:00.000+00:00\",\r\n        \"endTime\": \"2024-01-17T08:00:00.000+00:00\",\r\n        \"activityType\": \"RUNNING\",\r\n        \"distance\": 10.0,\r\n        \"averageSpeed\": 8.0\r\n    }",
+					"raw": " {\r\n        \"id\": 11,\r\n        \"user\": {\r\n            \"id\": 3,\r\n            \"firstName\": \"Olivia\",\r\n            \"lastName\": \"Davis\",\r\n            \"birthdate\": \"1948-05-24\",\r\n            \"email\": \"Olivia.Davis@domain.com\"\r\n        },\r\n        \"startTime\": \"2024-01-17T06:45:00.000+00:00\",\r\n        \"endTime\": \"2024-01-17T08:00:00.000+00:00\",\r\n        \"activityType\": \"WALKING\",\r\n        \"distance\": 10.0,\r\n        \"averageSpeed\": 8.0\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "localhost:8080/v1/training/createTraining"
+				"url": "localhost:8080/v1/trainings/createTraining"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "createTraining",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 11,\r\n        \"user\": {\r\n            \"id\": 3,\r\n            \"firstName\": \"Olivia\",\r\n            \"lastName\": \"Davis\",\r\n            \"birthdate\": \"1948-05-24\",\r\n            \"email\": \"Olivia.Davis@domain.com\"\r\n        },\r\n        \"startTime\": \"2024-01-17T06:45:00.000+00:00\",\r\n        \"endTime\": \"2024-01-17T08:00:00.000+00:00\",\r\n        \"activityType\": \"WALKING\",\r\n        \"distance\": 10.0,\r\n        \"averageSpeed\": 8.0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/v1/trainings/createTraining"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 19:07:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 11,\n    \"user\": {\n        \"id\": 3,\n        \"firstName\": \"Olivia\",\n        \"lastName\": \"Parker\",\n        \"birthdate\": \"1948-06-25\",\n        \"email\": \"Olivia.Parker@interia.com\"\n    },\n    \"startTime\": \"2024-01-17T06:45:00.000+00:00\",\n    \"endTime\": \"2024-01-17T08:00:00.000+00:00\",\n    \"activityType\": \"WALKING\",\n    \"distance\": 10,\n    \"averageSpeed\": 8\n}"
+				}
+			]
 		},
 		{
 			"name": "searchTrainigsFor User Before Date",
@@ -77,9 +302,54 @@
 						}
 					}
 				},
-				"url": "localhost:8080/v1/training/getAllFinishedTrainingsByDate/2024-01-18/user/2"
+				"url": "localhost:8080/v1/trainings/finished/2024-01-18"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "searchTrainigsFor User Before Date",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"user\": {\r\n        \"id\": 3,\r\n        \"firstName\": \"Olivia\",\r\n        \"lastName\": \"Davis\",\r\n        \"birthdate\": \"1948-05-24\",\r\n        \"email\": \"Olivia.Davis@domain.com\"\r\n    },\r\n    \"startTime\": \"2024-01-17T06:45:00.000+00:00\",\r\n    \"endTime\": \"2024-01-17T08:00:00.000+00:00\",\r\n    \"activityType\": \"RUNNING\",\r\n    \"distance\": 21.0,\r\n    \"averageSpeed\": 7.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/v1/trainings/finished/2024-01-18"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 19:08:54 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2,\n        \"user\": {\n            \"id\": 2,\n            \"firstName\": \"Ethan\",\n            \"lastName\": \"Taylor\",\n            \"birthdate\": \"1973-05-30\",\n            \"email\": \"Ethan.Taylor@domain.com\"\n        },\n        \"startTime\": \"2024-01-18T14:30:00.000+00:00\",\n        \"endTime\": \"2024-01-18T16:00:00.000+00:00\",\n        \"activityType\": \"CYCLING\",\n        \"distance\": 25,\n        \"averageSpeed\": 18.5\n    },\n    {\n        \"id\": 3,\n        \"user\": {\n            \"id\": 3,\n            \"firstName\": \"Olivia\",\n            \"lastName\": \"Parker\",\n            \"birthdate\": \"1948-06-25\",\n            \"email\": \"Olivia.Parker@interia.com\"\n        },\n        \"startTime\": \"2024-01-17T06:45:00.000+00:00\",\n        \"endTime\": \"2024-01-17T08:00:00.000+00:00\",\n        \"activityType\": \"WALKING\",\n        \"distance\": 5.2,\n        \"averageSpeed\": 5.8\n    },\n    {\n        \"id\": 4,\n        \"user\": {\n            \"id\": 4,\n            \"firstName\": \"Daniel\",\n            \"lastName\": \"Thomas\",\n            \"birthdate\": \"1990-05-30\",\n            \"email\": \"Daniel.Thomas@domain.com\"\n        },\n        \"startTime\": \"2024-01-16T17:00:00.000+00:00\",\n        \"endTime\": \"2024-01-16T18:30:00.000+00:00\",\n        \"activityType\": \"RUNNING\",\n        \"distance\": 12.3,\n        \"averageSpeed\": 9\n    },\n    {\n        \"id\": 5,\n        \"user\": {\n            \"id\": 5,\n            \"firstName\": \"Sophia\",\n            \"lastName\": \"Baker\",\n            \"birthdate\": \"1975-05-30\",\n            \"email\": \"Sophia.Baker@domain.com\"\n        },\n        \"startTime\": \"2024-01-15T11:30:00.000+00:00\",\n        \"endTime\": \"2024-01-15T12:45:00.000+00:00\",\n        \"activityType\": \"CYCLING\",\n        \"distance\": 18.7,\n        \"averageSpeed\": 15.3\n    },\n    {\n        \"id\": 6,\n        \"user\": {\n            \"id\": 6,\n            \"firstName\": \"Liam\",\n            \"lastName\": \"Jones\",\n            \"birthdate\": \"2001-05-30\",\n            \"email\": \"Liam.Jones@domain.com\"\n        },\n        \"startTime\": \"2024-01-14T08:00:00.000+00:00\",\n        \"endTime\": \"2024-01-14T09:15:00.000+00:00\",\n        \"activityType\": \"WALKING\",\n        \"distance\": 3.5,\n        \"averageSpeed\": 4\n    },\n    {\n        \"id\": 7,\n        \"user\": {\n            \"id\": 7,\n            \"firstName\": \"Ava\",\n            \"lastName\": \"Williams\",\n            \"birthdate\": \"2003-05-30\",\n            \"email\": \"Ava.Williams@domain.com\"\n        },\n        \"startTime\": \"2024-01-13T15:45:00.000+00:00\",\n        \"endTime\": \"2024-01-13T17:30:00.000+00:00\",\n        \"activityType\": \"RUNNING\",\n        \"distance\": 15,\n        \"averageSpeed\": 10.8\n    },\n    {\n        \"id\": 8,\n        \"user\": {\n            \"id\": 8,\n            \"firstName\": \"Noah\",\n            \"lastName\": \"Miller\",\n            \"birthdate\": \"1985-05-30\",\n            \"email\": \"Noah.Miller@domain.com\"\n        },\n        \"startTime\": \"2024-01-12T10:30:00.000+00:00\",\n        \"endTime\": \"2024-01-12T11:45:00.000+00:00\",\n        \"activityType\": \"CYCLING\",\n        \"distance\": 22.5,\n        \"averageSpeed\": 17.2\n    },\n    {\n        \"id\": 9,\n        \"user\": {\n            \"id\": 9,\n            \"firstName\": \"Grace\",\n            \"lastName\": \"Anderson\",\n            \"birthdate\": \"1991-05-30\",\n            \"email\": \"Grace.Anderson@domain.com\"\n        },\n        \"startTime\": \"2024-01-11T06:15:00.000+00:00\",\n        \"endTime\": \"2024-01-11T07:30:00.000+00:00\",\n        \"activityType\": \"WALKING\",\n        \"distance\": 4.2,\n        \"averageSpeed\": 4.5\n    },\n    {\n        \"id\": 10,\n        \"user\": {\n            \"id\": 10,\n            \"firstName\": \"Oliver\",\n            \"lastName\": \"Swift\",\n            \"birthdate\": \"1995-05-30\",\n            \"email\": \"Oliver.Swift@domain.com\"\n        },\n        \"startTime\": \"2024-01-10T13:00:00.000+00:00\",\n        \"endTime\": \"2024-01-10T14:15:00.000+00:00\",\n        \"activityType\": \"RUNNING\",\n        \"distance\": 11.8,\n        \"averageSpeed\": 8.5\n    },\n    {\n        \"id\": 11,\n        \"user\": {\n            \"id\": 3,\n            \"firstName\": \"Olivia\",\n            \"lastName\": \"Parker\",\n            \"birthdate\": \"1948-06-25\",\n            \"email\": \"Olivia.Parker@interia.com\"\n        },\n        \"startTime\": \"2024-01-17T06:45:00.000+00:00\",\n        \"endTime\": \"2024-01-17T08:00:00.000+00:00\",\n        \"activityType\": \"WALKING\",\n        \"distance\": 10,\n        \"averageSpeed\": 8\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Update Training",
@@ -88,16 +358,61 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"id\": 2,\r\n        \"user\": {\r\n            \"Id\": 2,\r\n            \"firstName\": \"Ethan\",\r\n            \"lastName\": \"Taylor\",\r\n            \"birthdate\": \"1973-05-28\",\r\n            \"email\": \"Ethan.Taylor@domain.com\"\r\n        },\r\n        \"startTime\": \"2024-01-18T14:30:00.000+00:00\",\r\n        \"endTime\": \"2024-01-18T16:00:00.000+00:00\",\r\n        \"activityType\": \"WALKING\",\r\n        \"distance\": 25.0,\r\n        \"averageSpeed\": 18.5\r\n    }",
+					"raw": "{\r\n        \"id\": 2,\r\n        \"user\": {\r\n            \"id\": 2,\r\n            \"firstName\": \"Ethan\",\r\n            \"lastName\": \"Taylor\",\r\n            \"birthdate\": \"1973-05-28\",\r\n            \"email\": \"Ethan.Taylor@domain.com\"\r\n        },\r\n        \"startTime\": \"2024-01-18T14:30:00.000+00:00\",\r\n        \"endTime\": \"2024-01-18T16:00:00.000+00:00\",\r\n        \"activityType\": \"WALKING\",\r\n        \"distance\": 25.0,\r\n        \"averageSpeed\": 18.5\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "localhost:8080/v1/training/updateTraining/2/user/2"
+				"url": "localhost:8080/v1/trainings/2"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Update Training",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 2,\r\n        \"user\": {\r\n            \"id\": 2,\r\n            \"firstName\": \"Ethan\",\r\n            \"lastName\": \"Taylor\",\r\n            \"birthdate\": \"1973-05-28\",\r\n            \"email\": \"Ethan.Taylor@domain.com\"\r\n        },\r\n        \"startTime\": \"2024-01-18T14:30:00.000+00:00\",\r\n        \"endTime\": \"2024-01-18T16:00:00.000+00:00\",\r\n        \"activityType\": \"WALKING\",\r\n        \"distance\": 25.0,\r\n        \"averageSpeed\": 18.5\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/v1/trainings/2"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 May 2024 19:09:41 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"user\": {\n        \"id\": 2,\n        \"firstName\": \"Ethan\",\n        \"lastName\": \"Taylor\",\n        \"birthdate\": \"1973-05-30\",\n        \"email\": \"Ethan.Taylor@domain.com\"\n    },\n    \"startTime\": \"2024-01-18T14:30:00.000+00:00\",\n    \"endTime\": \"2024-01-18T16:00:00.000+00:00\",\n    \"activityType\": \"WALKING\",\n    \"distance\": 25,\n    \"averageSpeed\": 18.5\n}"
+				}
+			]
 		}
 	]
 }

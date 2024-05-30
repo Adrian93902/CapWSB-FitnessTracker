@@ -12,7 +12,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
+/**
+ * Service implementation for managing user-related operations.
+ *
+ * <p>This service provides methods for creating, updating, retrieving, and deleting users.
+ * It also includes methods for searching users by age and retrieving basic user information.</p>
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -24,9 +29,8 @@ class UserServiceImpl implements UserService, UserProvider {
     /**
      * Creates a new user.
      *
-     * @param user the user object to be created
-     * @return the created user object
-     * @throws IllegalArgumentException if the user object already has a database ID
+     * @param userDto the user data transfer object to be created
+     * @return the created user data transfer object
      */
 
     @Override
@@ -40,7 +44,11 @@ class UserServiceImpl implements UserService, UserProvider {
         User newUserDto =  userRepository.save(newUser);
         return userMapper.toDto(newUserDto);
     }
-
+    /**
+     * Retrieves basic information about all users.
+     *
+     * @return a list of {@link UserSimpleDto} objects representing basic user information
+     */
     @Override
     public List<UserSimpleDto> getUserInfoBasic() {
         log.info("Getting basic user info for all users.");
@@ -54,7 +62,7 @@ class UserServiceImpl implements UserService, UserProvider {
      * Retrieves a user by their ID.
      *
      * @param userId the ID of the user to retrieve
-     * @return an Optional containing the user object if found, otherwise empty
+     * @return the user data transfer object if found, otherwise null
      */
 
     @Override
@@ -68,7 +76,7 @@ class UserServiceImpl implements UserService, UserProvider {
      * Retrieves a user by their email address.
      *
      * @param email the email address of the user to retrieve
-     * @return an Optional containing the user object if found, otherwise empty
+     * @return the user data transfer object if found, otherwise null
      */
 
     @Override
@@ -81,7 +89,7 @@ class UserServiceImpl implements UserService, UserProvider {
     /**
      * Retrieves all users.
      *
-     * @return a list of all users
+     * @return a list of user data transfer objects representing all users
      */
 
     @Override
@@ -108,7 +116,7 @@ class UserServiceImpl implements UserService, UserProvider {
      * Searches for users whose age is greater than the specified value.
      *
      * @param age the age value to compare
-     * @return a list of users whose age is greater than the specified value
+     * @return a list of user data transfer objects representing users whose age is greater than the specified value
      */
 
 
@@ -124,9 +132,9 @@ class UserServiceImpl implements UserService, UserProvider {
     /**
      * Updates an existing user.
      *
-     * @param user the user object to be updated
-     * @return the updated user object
-     * @throws IllegalArgumentException if the user object does not have a database ID
+     * @param userId  the ID of the user to update
+     * @param userDto the user data transfer object containing updated information
+     * @return the updated user data transfer object
      */
 
     @Override

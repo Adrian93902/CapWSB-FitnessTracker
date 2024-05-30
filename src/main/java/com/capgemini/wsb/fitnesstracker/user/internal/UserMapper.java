@@ -6,7 +6,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 /**
- * Component responsible for mapping between User and UserDto objects.
+ * Component responsible for mapping between {@link User} and {@link UserDto} objects.
+ *
+ * <p>This class provides methods to convert {@link User} entities to {@link UserDto} data transfer objects
+ * and vice versa. This is useful for separating the internal representation of the user from the
+ * representation used in the API.</p>
  */
 @Data
 @Component
@@ -16,10 +20,10 @@ public class UserMapper {
 
 
     /**
-     * Maps a User object to a UserDto object.
+     * Maps a {@link User} object to a {@link UserDto} object.
      *
-     * @param user the User object to map
-     * @return the mapped UserDto object
+     * @param user the {@link User} object to map
+     * @return the mapped {@link UserDto} object
      */
     public UserDto toDto(User user) {
         return new UserDto(user.getId(),
@@ -30,10 +34,10 @@ public class UserMapper {
     }
 
     /**
-     * Maps a UserDto object to a User object.
+     * Maps a {@link UserDto} object to a {@link User} object.
      *
-     * @param userDto the UserDto object to map
-     * @return the mapped User object
+     * @param userDto the {@link UserDto} object to map
+     * @return the mapped {@link User} object
      */
     public User toEntity(UserDto userDto) {
         return new User(
