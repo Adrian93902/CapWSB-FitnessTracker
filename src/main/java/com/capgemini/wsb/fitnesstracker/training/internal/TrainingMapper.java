@@ -11,9 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class TrainingMapper {
-
     private final UserMapper userMapper;
-
     /**
      * Maps a Training object to a TrainingDto object.
      *
@@ -21,6 +19,9 @@ public class TrainingMapper {
      * @return the mapped TrainingDto object
      */
     TrainingDto toDto(Training training) {
+        if (training == null) {
+            return null;
+        }
         TrainingDto trainingDto = new TrainingDto();
         trainingDto.setId(training.getId());
         trainingDto.setUser(userMapper.toDto(training.getUser()));
@@ -33,14 +34,21 @@ public class TrainingMapper {
         return trainingDto;
 
     }
+    Training toEntity(TrainingDto trainingDto, User foundUser){
 
+        if (trainingDto == null) {
+            return null;
+        }
+        Training newTraining = new Training();
+        newTraining.setUser(foundUser);
+        newTraining.setStartTime(trainingDto.getStartTime());
+        newTraining.setEndTime(trainingDto.getEndTime());
+        newTraining.setActivityType(trainingDto.getActivityType());
+        newTraining.setDistance(trainingDto.getDistance());
+        newTraining.setAverageSpeed(trainingDto.getAverageSpeed());
 
+        return newTraining;
 
-}  /*this.id = id;
-        this.userId = userId;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.activityType = activityType;
-        this.distance = distance;
-        this.averageSpeed = averageSpeed;*/
+    }
+}
 

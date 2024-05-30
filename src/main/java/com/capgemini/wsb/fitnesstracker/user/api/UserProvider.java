@@ -2,6 +2,7 @@ package com.capgemini.wsb.fitnesstracker.user.api;
 
 
 
+import com.capgemini.wsb.fitnesstracker.user.internal.UserDto;
 import com.capgemini.wsb.fitnesstracker.user.internal.UserSimpleDto;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface UserProvider {
      * @param userId id of the user to be searched
      * @return An {@link Optional} containing the located user, or {@link Optional#empty()} if not found
      */
-    Optional<User> getUser(Long userId);
+    UserDto getUser(Long userId);
 
     /**
      * Retrieves a user based on their email.
@@ -27,14 +28,14 @@ public interface UserProvider {
      * @param email The email of the user to be searched
      * @return An {@link Optional} containing the located user, or {@link Optional#empty()} if not found
      */
-    Optional<User> getUserByEmail(String email);
+    UserDto getUserByEmail(String email);
 
     /**
      * Retrieves all users.
      *
      * @return An {@link Optional} containing the all users,
      */
-    List<User> findAllUsers();
+    List<UserDto> findAllUsers();
 
     /**
      * Deletes a user based on their ID.
@@ -50,6 +51,6 @@ public interface UserProvider {
      * @param age the age value to compare
      * @return a list of users whose age is greater than the specified value
      */
-    List<User> searchUsersByAgeGreaterThan(int age);
+    List<UserDto> searchUsersByAgeGreaterThan(int age);
 
 }

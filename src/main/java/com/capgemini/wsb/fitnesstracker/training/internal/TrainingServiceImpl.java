@@ -25,40 +25,46 @@ public class TrainingServiceImpl implements TrainingProvider {
     @Override
     public TrainingDto getTraining(final Long trainingId) {
         Training trainingRef = trainingRepository.getReferenceById(trainingId);
-        TrainingDto trainingToDto = trainingMapper.toDto(trainingRef);
-        return trainingToDto;
+        return trainingMapper.toDto(trainingRef);
     }
 
     @Override
-    public List<Training> getAllTrainings() {
-        return trainingRepository.findAll();
+    public List<TrainingDto> getAllTrainings() {
+        return trainingRepository.findAll()
+                .stream()
+                .map(trainingMapper::toDto)
+                .collect(Collectors.toList());
     }
     @Override
     public List<TrainingDto> getAllTrainingsForUser(Long userId){
-        return trainingRepository.getAllTrainingsForUser(userId).stream().map(training ->  trainingMapper.toDto(training)).collect(Collectors.toList());
-    }
-
-    @Override
-    public List<TrainingDto> getAllFinishedTrainingsByDate(Date endTimeTraining, Long userId) {
-        return trainingRepository.getAllFinishedTrainingsByDate(endTimeTraining,userId).stream()
-                .map(training ->  trainingMapper.toDto(training))
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public List<TrainingDto> getAllTrainingsByActivityType(String activityType, Long userId) {
-
-        return trainingRepository.getAllTrainingsByActivityType(activityType,userId).stream()
+        return trainingRepository.getAllTrainingsForUser(userId)
+                .stream()
                 .map(trainingMapper::toDto)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public TrainingDto updateTraining(Long trainingId, Long userId, TrainingDto updatedTraining) {
+    public List<TrainingDto> getAllFinishedTrainingsByDate(Date afterTime) {
+        return trainingRepository.getAllFinishedTrainingsByDate(afterTime)
+                .stream()
+                .map(trainingMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<TrainingDto> getAllTrainingsByActivityType(String activityType) {
+        return trainingRepository.getAllTrainingsByActivityType(activityType)
+                .stream()
+                .map(trainingMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public TrainingDto updateTraining(Long trainingId, TrainingDto updatedTraining) {
         Training training = trainingRepository.findById(trainingId)
                 .orElseThrow(() -> new RuntimeException("Training not found with id: " + trainingId));
 
-        if (!training.getUser().getId().equals(userId)) {
+        if (!training.getUser().getId().equals(updatedTraining.getUser().id())) {
             throw new RuntimeException("User is not authorized to update this training");
         }
 
@@ -87,13 +93,16 @@ public class TrainingServiceImpl implements TrainingProvider {
      * @throws RuntimeException if the user with the specified ID is not found
      */
     @Override
-    public Training createTraining(TrainingDto createTraining) {
-        User foundUser = userRepository.findById(createTraining.getUser().Id())
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + createTraining.getUser().Id()));
+    public TrainingDto createTraining(TrainingDto createTraining) {
+        User foundUser = userRepository.findById(createTraining.getUser().id())
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + createTraining.getUser().id()));
 
-        Training newTraining = new Training(foundUser, createTraining.getStartTime(), createTraining.getEndTime(), ActivityType.valueOf(createTraining.getActivityType().toString().toUpperCase()), createTraining.getDistance(), createTraining.getAverageSpeed());
+        Training newTraining = trainingMapper.toEntity(createTraining, foundUser);
 
-        return trainingRepository.save(newTraining);
+        Training training = trainingRepository.save(newTraining);
+        return trainingMapper.toDto(training);
+
+
     }
 
 

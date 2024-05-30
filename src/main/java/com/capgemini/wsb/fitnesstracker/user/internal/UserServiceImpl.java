@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 class UserServiceImpl implements UserService, UserProvider {
 
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     /**
      * Creates a new user.
@@ -29,12 +30,15 @@ class UserServiceImpl implements UserService, UserProvider {
      */
 
     @Override
-    public User createUser(final User user) {
-        log.info("Creating User {}", user);
-        if (user.getId() != null) {
-            throw new IllegalArgumentException("User has already DB ID, update is not permitted!");
-        }
-        return userRepository.save(user);
+    public UserDto createUser(final UserDto userDto) {
+        log.info("Creating User {}", userDto);
+        //if (userDto.getId() != null) {
+        //    throw new IllegalArgumentException("User has already DB ID, update is not permitted!");
+        //}
+
+        User newUser = userMapper.toEntity(userDto);
+        User newUserDto =  userRepository.save(newUser);
+        return userMapper.toDto(newUserDto);
     }
 
     @Override
@@ -54,8 +58,10 @@ class UserServiceImpl implements UserService, UserProvider {
      */
 
     @Override
-    public Optional<User> getUser(final Long userId) {
-        return userRepository.findById(userId);
+    public UserDto getUser(final Long userId) {
+        return userRepository.findById(userId)
+                .map(userMapper::toDto)
+                .orElse(null);
     }
 
     /**
@@ -66,8 +72,10 @@ class UserServiceImpl implements UserService, UserProvider {
      */
 
     @Override
-    public Optional<User> getUserByEmail(final String email) {
-        return userRepository.findByEmail(email);
+    public UserDto getUserByEmail(final String email) {
+        return userRepository.findByEmail(email)
+                .map(userMapper::toDto)
+                .orElse(null);
     }
 
     /**
@@ -77,8 +85,11 @@ class UserServiceImpl implements UserService, UserProvider {
      */
 
     @Override
-    public List<User> findAllUsers() {
-        return userRepository.findAll();
+    public List<UserDto> findAllUsers() {
+        return userRepository.findAll()
+                .stream()
+                .map(userMapper::toDto)
+                .toList();
     }
 
     /**
@@ -102,9 +113,12 @@ class UserServiceImpl implements UserService, UserProvider {
 
 
     @Override
-    public List<User> searchUsersByAgeGreaterThan(int age) {
+    public List<UserDto> searchUsersByAgeGreaterThan(int age) {
         log.info("Searching users by age greater than: {}", age);
-        return userRepository.searchUsersByAgeGreaterThan(age);
+        return userRepository.searchUsersByAgeGreaterThan(age)
+                .stream()
+                .map(userMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     /**
@@ -116,12 +130,20 @@ class UserServiceImpl implements UserService, UserProvider {
      */
 
     @Override
-    public User updateUser(User user) {
-        log.info("Updating user with ID: {}", user.getId());
-        if (user.getId() == null) {
-            throw new IllegalArgumentException("User does not have a DB ID, cannot be updated!");
-        }
+    public UserDto updateUser(Long userId, UserDto userDto) {
 
-        return userRepository.save(user);
+
+        Optional<User> existingUserOptional = userRepository.findById(userId);
+
+        User updatedUser = existingUserOptional.map(user -> {
+            user.setFirstName(userDto.firstName());
+            user.setLastName(userDto.lastName());
+            user.setBirthdate(userDto.birthdate());
+            user.setEmail(userDto.email());
+            return user;
+        }).orElse(null);
+
+        User savedUser = userRepository.save(updatedUser);
+        return userMapper.toDto(savedUser);
     }
 }

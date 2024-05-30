@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Represents a user entity.
@@ -56,8 +57,8 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "userMap", cascade = CascadeType.ALL)
-    private Training trainingMap;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Training> trainingMap;
     /**
      * Constructs a new User object with the specified parameters.
      *

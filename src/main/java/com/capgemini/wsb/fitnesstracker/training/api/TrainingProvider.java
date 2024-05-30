@@ -22,12 +22,12 @@ public interface TrainingProvider {
     TrainingDto getTraining(final Long trainingId);
     List<TrainingDto> getAllTrainingsForUser(Long userId);
 
-    List<Training> getAllTrainings();
-    List<TrainingDto> getAllFinishedTrainingsByDate(Date endTimeTraining, Long userId);
+    List<TrainingDto> getAllTrainings();
+    List<TrainingDto> getAllFinishedTrainingsByDate(Date afterTime);
 
-    List<TrainingDto> getAllTrainingsByActivityType(String activityType, Long userId);
-    TrainingDto updateTraining(Long trainingId, Long userId, TrainingDto updatedTraining);
-    Training createTraining(TrainingDto createTraining);
+    List<TrainingDto> getAllTrainingsByActivityType(String activityType);
+    TrainingDto updateTraining(Long trainingId, TrainingDto updatedTraining);
+    TrainingDto createTraining(TrainingDto createTraining);
 
 
 

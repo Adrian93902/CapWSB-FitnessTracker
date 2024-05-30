@@ -12,7 +12,7 @@ import java.util.Date;
 @Entity
 @Table(name = "trainings")
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @ToString
 public class Training {
 
@@ -22,7 +22,8 @@ public class Training {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "start_time", nullable = false)
@@ -41,9 +42,8 @@ public class Training {
     @Column(name = "average_speed")
     private double averageSpeed;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User userMap;
+
+
 
     public Training(
             final User user,

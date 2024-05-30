@@ -8,7 +8,7 @@ import java.time.LocalDate;
 /**
  * Data transfer object (DTO) representing a user.
  */
-public record UserDto(@Nullable Long Id, String firstName, String lastName,
+public record UserDto(@Nullable Long id, String firstName, String lastName,
                @JsonFormat(pattern = "yyyy-MM-dd") LocalDate birthdate,
                String email) {
 

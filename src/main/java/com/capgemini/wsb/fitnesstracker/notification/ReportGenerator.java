@@ -26,7 +26,7 @@ import static java.util.Calendar.DAY_OF_MONTH;
 //TODO mailtrap.io -- strona do testowania wysylki maili - konfiguracja jamlowa do springa [ lab 25.05 min 30] - trzeba wkleic do pliku application.yml w resources
 //TODO - uzyc CRONA zamiast fixed delay , patrz nagranie z lab 25.05 g. 14.30 - uzyc generatora
 //dla kazdego usera wygenerowac raport treningow i wyslac mailem, trzeba pobrac treningi zeby moc sie dostac do userow
-
+/*
 @EnableScheduling
 @Service
 @Data
@@ -41,7 +41,7 @@ public class ReportGenerator {
     private final UserProvider userProvider;
     private final TrainingProvider trainingProvider;
 
-    /*@Component
+    @Component
     @AllArgsConstructor
     public class JavaSpringEmailSender implements Email Sender (
     private final JavaMailSender javaMailSender ;
@@ -61,7 +61,7 @@ public class ReportGenerator {
         //log.info("Report generated");
     //} (*    */30    22    *    4,5,6,7    FRI)
     // @Scheduled(cron = "0 0 12 ? * 1") this cron is for sending emails as given in instructions, for testing other cron is used
-    @Scheduled(cron = "0 * * * * *")
+    /*@Scheduled(cron = "0 * * * * *")
     public void generateReport() {
         log.info("Starting generation of training reports");
         final List<User> allUsers = userProvider.findAllUsers();
@@ -125,4 +125,4 @@ public class ReportGenerator {
         return now.getTime();
     }
 
-}
+}*/

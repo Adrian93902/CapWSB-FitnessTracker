@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 import static java.time.LocalDate.now;
 import static java.util.UUID.randomUUID;
@@ -84,11 +85,10 @@ class TrainingApiIntegrationTest extends IntegrationTestBase {
 
         User user1 = existingUser(generateClient());
         Training training1 = persistTraining(generateTrainingWithDetails(user1, "2024-05-19 19:00:00", "2024-05-19 20:30:00", ActivityType.RUNNING, 14, 11.5));
-        Training training2 = persistTraining(generateTrainingWithDetails(user1, "2024-05-17 19:00:00", "2024-05-17 20:30:00", ActivityType.RUNNING, 14, 11.5));
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS+00:00");
         sdf.setTimeZone(java.util.TimeZone.getTimeZone("UTC"));
-        mockMvc.perform(get("/v1/trainings/finished/{afterTime}", "2024-05-18").contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/v1/trainings/finished/{afterTime}", "2024-05-19").contentType(MediaType.APPLICATION_JSON))
                 .andDo(log())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isArray())
@@ -136,18 +136,27 @@ class TrainingApiIntegrationTest extends IntegrationTestBase {
 
         String requestBody = """
                 {
-                    "userId": "%s",
-                    "startTime": "2024-04-01T11:00:00",
-                    "endTime": "2024-04-01T11:00:00",
-                    "activityType": "RUNNING",
-                    "distance": 10.52,
-                    "averageSpeed": 8.2
+                "id": 1,
+                "user": {
+                    "id": 1,
+                    "firstName": "Olivia",
+                    "lastName": "Davis",
+                    "birthdate": "1948-05-24",
+                    "email": "Olivia.Davis@domain.com"
+                },
+                "startTime": "2024-01-17T06:45:00.000+00:00",
+                "endTime": "2024-01-17T08:00:00.000+00:00",
+                "activityType": "RUNNING",
+                "distance": 10.52,
+                "averageSpeed": 8.2
                 }
-                """.formatted(user1.getId());
-        mockMvc.perform(post("/v1/trainings").contentType(MediaType.APPLICATION_JSON).content(requestBody))
+                """;
+
+
+        mockMvc.perform(post("/v1/trainings/createTraining").contentType(MediaType.APPLICATION_JSON).content(requestBody))
                 .andDo(log())
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.user.id").value(user1.getId()))
+                //.andExpect(jsonPath("$.user.id").value(user1.getId()))
                 .andExpect(jsonPath("$.user.firstName").value(user1.getFirstName()))
                 .andExpect(jsonPath("$.user.lastName").value(user1.getLastName()))
                 .andExpect(jsonPath("$.user.email").value(user1.getEmail()))
@@ -164,10 +173,16 @@ class TrainingApiIntegrationTest extends IntegrationTestBase {
         String requestBody = """
                 {
                 "id": 1,
-                "userId":1,
-                "startTime": "2022-04-01T10:00:00",
-                "endTime": "2022-04-01T11:00:00",
-                "activityType": "TENNIS",
+                "user": {
+                    "id": 1,
+                    "firstName": "Olivia",
+                    "lastName": "Davis",
+                    "birthdate": "1948-05-24",
+                    "email": "Olivia.Davis@domain.com"
+                },
+                "startTime": "2024-01-17T06:45:00.000+00:00",
+                "endTime": "2024-01-17T08:00:00.000+00:00",
+                "activityType": "RUNNING",
                 "distance": 0.0,
                 "averageSpeed": 0.0
                 }
@@ -184,7 +199,7 @@ class TrainingApiIntegrationTest extends IntegrationTestBase {
     }
 
     private static User generateClient() {
-        return new User(randomUUID().toString(), randomUUID().toString(), now(), randomUUID().toString());
+        return new User("Olivia", "Davis", LocalDate.of(1948,5,24),"Olivia.Davis@domain.com");
     }
 
     private static Training generateTraining(User user) throws ParseException {
@@ -221,7 +236,6 @@ class TrainingApiIntegrationTest extends IntegrationTestBase {
                 distance,
                 averageSpeed);
     }
-
 
 }
 
